@@ -22,7 +22,7 @@ public class DNSClient {
             serverProvider = (DistributedInterface) Naming.lookup("Server.DNSServer");
             String path = "logfile/logfile" + "-" + numClients + "-" + callType + "." + "txt";
             logFile = new File(path);
-            createLogFile(numClients);
+            createLogFile();
         } catch (NotBoundException | IOException e) {
             e.printStackTrace();
         }
@@ -39,8 +39,7 @@ public class DNSClient {
         }
     }
 
-    private void createLogFile(int clients) throws IOException {
-
+    private void createLogFile() throws IOException {
         if (!logFile.createNewFile()) {
             Writer fileWriter = new FileWriter(logFile.getPath(), false);
             fileWriter.write("");
