@@ -1,2 +1,4 @@
 .idea
 *.etcd
+hadoop-output
+logfile
